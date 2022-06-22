@@ -49,13 +49,13 @@ class Server {
             productos: '/api/productos',
             clientes: '/ api/clientes',
         };
-        this.conectarBD;
+        this.conectarDb;
         this.middlewares;
         this.routes;
         this.router.use('/v1/sextoa', this.app);
         this._express = (0, express_1.default)().use(this.router);
     }
-    conectarBD() {
+    conectarDb() {
         return __awaiter(this, void 0, void 0, function* () {
             yield (0, config_1.dbConnection)();
         });

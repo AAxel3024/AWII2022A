@@ -20,7 +20,7 @@ class Server
       productos: '/api/productos',
       clientes: '/ api/clientes',
     }
-    this.conectarBd
+    this.conectarDb
     this.middlewares
     this.routes
     this.router.use('/v1/sextoa', this.app);
@@ -29,7 +29,7 @@ class Server
 
 
 
-  private async conectarBd (){
+  private async conectarDb (){
     await dbConnection();
   }
    private middlewares(){
