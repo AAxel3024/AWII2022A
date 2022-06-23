@@ -4,7 +4,7 @@ const {Producto} = require('../models')
 const obtenerProductos = async (req,res = response)  => {
     const {limite=10, desde=0} = req.query;
     const query = {estado:true};
-    const[total, productos] = await Primise.all([
+    const[total, productos] = await Promise.all([
         await Producto.countDocuments(query),
         await Producto.find(query)
     ])

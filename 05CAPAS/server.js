@@ -16,7 +16,7 @@ class Server{
         this._express = express().use(this.router)
     }
     async conectarBD(){
-        await dbConnectio();
+        await dbConnection();
     }
         meddlewares(){
             this.app.use(cors());
@@ -25,7 +25,7 @@ class Server{
         routes(){
             this.app.use(this.paths.productos, require('./routes/producto'))
         }
-        addListener(){
+        listen(){
             this._express.listen(this.port, ()=>{
                 console.log(`Servidor corriedo en puerto ${this.port}`)
             })
