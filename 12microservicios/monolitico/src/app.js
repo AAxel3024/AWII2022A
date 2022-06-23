@@ -13,15 +13,15 @@ app.use((req,res,next)=>{
 
 app.get('/api/v1/usuarios' , (req,res) =>{
     respuesta.data.push("Administrador","Superadministrador");
-    return res.send (respuesta.data);
+    return res.send (respuesta);
 })
 app.get('/api/v1/productos' , (req,res) =>{
     respuesta.data.push("Hamburguesa","Pizza","");
-    return res.send (respuesta.data);
+    return res.send (respuesta);
 })
 app.get('/api/v1/clientes' , (req,res) =>{
     respuesta.data.push("Consumidor finla","Ruben S");
-    return res.send (respuesta.data);
+    return res.send (respuesta);
 })
 
 module.exports = app;

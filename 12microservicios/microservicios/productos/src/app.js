@@ -9,6 +9,7 @@ const respuesta = {
 
 
 app.get('/api/v2/productos' , (req,res) =>{
+    respuesta.data = []
     respuesta.data.push("Pizza","Hamburguesa");
     console.log( "Microservicio Productos")
     return res.send (respuesta);

@@ -9,6 +9,7 @@ const respuesta = {
 
 
 app.get('/api/v2/usuarios' , (req,res) =>{
+    respuesta.data = []
     respuesta.data.push("Administrador","Superadministrador");
     console.log( "Microservicio Clientes")
     return res.send (respuesta);
