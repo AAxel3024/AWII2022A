@@ -41,8 +41,6 @@ const config_1 = require("./database/config");
 const cors_1 = __importDefault(require("cors"));
 const Usuarios_1 = require("./routes/Usuarios");
 const Buses_1 = require("./routes/Buses");
-const Planes_1 = require("./routes/Planes");
-const RegistroRecargas_1 = require("./routes/RegistroRecargas");
 const RegistroViajes_1 = require("./routes/RegistroViajes");
 class server {
     constructor() {
@@ -52,8 +50,6 @@ class server {
         this.paths = {
             usuarios: '/api/usuarios',
             buses: '/api/buses',
-            planes: '/api/planes',
-            registrorecargas: '/api/registrorecargas',
             registroviajes: '/api/registroviajes'
             //añadir mas si se necesitan
         };
@@ -80,13 +76,11 @@ class server {
     routes() {
         this.app.use(this.paths.usuarios, Usuarios_1.router);
         this.app.use(this.paths.buses, Buses_1.router);
-        this.app.use(this.paths.planes, Planes_1.router);
-        this.app.use(this.paths.registrorecargas, RegistroRecargas_1.router);
         this.app.use(this.paths.registroviajes, RegistroViajes_1.router);
     }
     listen() {
         this._express.listen(this.port, () => {
-            console.log(`Servidor ejecutando en http://localhost:${this.port}/v1/sextoa/api/usuarios`);
+            console.log(`Servidor ejecutando en http://localhost:${this.port}/v1/sextoa/api/registroviajes`);
         });
     }
 }

@@ -23,14 +23,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RegistroViaje = exports.RegistroRecarga = exports.Plan = exports.Bus = exports.Usuario = void 0;
+exports.RegistroViaje = exports.Bus = exports.Usuario = void 0;
 const Usuario = __importStar(require("./Usuarios"));
 exports.Usuario = Usuario;
 const Bus = __importStar(require("./Buses"));
 exports.Bus = Bus;
-const Plan = __importStar(require("./Planes"));
-exports.Plan = Plan;
-const RegistroRecarga = __importStar(require("./RegistroRecargas"));
-exports.RegistroRecarga = RegistroRecarga;
 const RegistroViaje = __importStar(require("./RegistroViajes"));
 exports.RegistroViaje = RegistroViaje;

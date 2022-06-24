@@ -3,8 +3,6 @@ import { DBConnection } from './database/config';
 import cors from 'cors';
 import { router as usuarios} from './routes/Usuarios'
 import { router as buses} from './routes/Buses'
-import { router as planes} from './routes/Planes'
-import { router as registrorecargas} from './routes/RegistroRecargas'
 import { router as registroviajes} from './routes/RegistroViajes'
 import { Request, Response, NextFunction } from 'express';
 class server {
@@ -20,8 +18,6 @@ class server {
         this.paths = {
             usuarios: '/api/usuarios',
             buses: '/api/buses',
-            planes: '/api/planes',
-            registrorecargas: '/api/registrorecargas',
             registroviajes: '/api/registroviajes'
             //añadir mas si se necesitan
         }
@@ -46,14 +42,12 @@ class server {
     private routes() {
         this.app.use(this.paths.usuarios, usuarios);
         this.app.use(this.paths.buses, buses);
-        this.app.use(this.paths.planes, planes);
-        this.app.use(this.paths.registrorecargas, registrorecargas);
         this.app.use(this.paths.registroviajes, registroviajes);
 
     }
     listen() {
         this._express.listen(this.port, () => {
-            console.log(`Servidor ejecutando en http://localhost:${this.port}/v1/sextoa/api/usuarios`);
+            console.log(`Servidor ejecutando en http://localhost:${this.port}/v1/sextoa/api/registroviajes`);
         })
     }
 }
