@@ -21,7 +21,7 @@ const obtenerProducto = async (req, res) => {
 const crearProducto = async  (req, res) => {
     const {estado, ...body} = req.body;
 
-    const productExiste = await Producto.findOne({nombre:body.nombre})
+    const productExiste = await Producto.findOne({Nombre:body.nombre})
     if(productExiste){
         res.status(400).json({
             message:`El producto con ese nombre ya existe ${productExiste.nombre}`
@@ -40,7 +40,7 @@ const actualzarProducto = async (req, res) =>{
 }
 const borrarProducto = async (req, res) =>{
     const {id} = req.params
-    const productoBorrado = await Producto.findByIdAndUpdate({id, estado:false}, {new:true});
+    const productoBorrado = await Producto.findByIdAndUpdate(id, {estado:false}, {new:true});
     res.json(productoBorrado);
 }
 module.exports = {
