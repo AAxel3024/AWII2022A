@@ -5,12 +5,12 @@ const obtenerProductos = async (req,res = response)  => {
     const {limite=10, desde=0} = req.query;
     const query = {estado:true};
     const[total, productos] = await Promise.all([
-        await Producto.countDocuments(query),
-        await Producto.find(query)
+        Producto.countDocuments(query),
+        Producto.find(query),
     ])
     res.json({
         total,
-        productos
+        productos,
     })
 }
 const obtenerProducto = async (req, res) => {
@@ -21,12 +21,10 @@ const obtenerProducto = async (req, res) => {
 const crearProducto = async  (req, res) => {
     const {estado, ...body} = req.body;
 
-    const productExiste = await Producto.findOne({nombre:body.combre})
-    if(productExiste)
-    {
+    const productExiste = await Producto.findOne({nombre:body.nombre})
+    if(productExiste){
         res.status(400).json({
-            message:
-            `El producto con ese nombre ya existe ${productExiste.nombre}`
+            message:`El producto con ese nombre ya existe ${productExiste.nombre}`
         })
     }
     const producto = new Producto(body);
